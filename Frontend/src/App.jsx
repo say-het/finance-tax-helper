@@ -7,12 +7,15 @@ import OCR from "./Components/Ocr";
 import Home from "./Components/Home";
 import AllForms from "./AllForms";
 import Dashboard from "./Components/Dashboard/Page/Dashboard";
+// import { CookieCheck, AuthContextCheckState } from "./context/AuthState";
 
 export default function App() {
   return (
+    // <AuthContextCheckState>
     <Router>
       <div className="h-screen flex flex-col">
         <Navbar />
+          <CookieCheck/>
         <div className="flex-1">
           <Routes>
             <Route path="/" element={<Home />} />
@@ -27,5 +30,6 @@ export default function App() {
         </div>
       </div>
     </Router>
+    // /</AuthContextCheckState>
   );
 }

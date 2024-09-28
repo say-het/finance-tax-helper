@@ -14,30 +14,34 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     setLoading(true);
+    
     try {
       await signInWithEmailAndPassword(auth, email, password);
+      
+      // Store email in localStorage
+      localStorage.setItem('userEmail', email);
+      
       toast.success("Logged in successfully!");
       setLoading(false);
-      navigate("/dashboard"); // Redirect on successful login
+      navigate("/dashboard");
     } catch (error) {
       setLoading(false);
       toast.error("Login failed: " + error.message);
     }
   };
-
   // Handle login with Google
-  const handleGoogleLogin = async () => {
-    setLoading(true);
-    try {
-      await signInWithPopup(auth, provider);
-      toast.success("Logged in with Google successfully!");
-      setLoading(false);
-      navigate("/home"); // Redirect on successful login
-    } catch (error) {
-      setLoading(false);
-      toast.error("Google login failed: " + error.message);
-    }
-  };
+  // const handleGoogleLogin = async () => {
+  //   setLoading(true);
+  //   try {
+  //     await signInWithPopup(auth, provider);
+  //     toast.success("Logged in with Google successfully!");
+  //     setLoading(false);
+  //     navigate("/home"); // Redirect on successful login
+  //   } catch (error) {
+  //     setLoading(false);
+  //     toast.error("Google login failed: " + error.message);
+  //   }
+  // };
 
   return (
     <div className="h-screen flex flex-col items-center justify-center bg-white">
@@ -93,13 +97,13 @@ const Login = () => {
             <div className="flex-grow border-t border-gray-300"></div>
           </div>
 
-          {/* Login with Google */}
+          {/* Login with Google
           <button
             onClick={handleGoogleLogin}
             className="flex items-center justify-center gap-2 w-full border border-gray-300 bg-white p-2 text-gray-700 rounded-md hover:bg-gray-50"
           >
             {loading ? <span className="loading loading-spinner loading-sm"></span> : "Login with Google"}
-          </button>
+          </button> */}
 
           {/* Sign up Link */}
           <p className="mt-6 text-xs text-center text-gray-700">
