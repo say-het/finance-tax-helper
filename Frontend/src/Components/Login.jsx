@@ -18,7 +18,7 @@ const Login = () => {
       await signInWithEmailAndPassword(auth, email, password);
       toast.success("Logged in successfully!");
       setLoading(false);
-      navigate("/home"); // Redirect on successful login
+      navigate("/dashboard"); // Redirect on successful login
     } catch (error) {
       setLoading(false);
       toast.error("Login failed: " + error.message);
@@ -45,7 +45,7 @@ const Login = () => {
       {/* Header */}
 
       {/* Main Content */}
-      <div className="w-full max-w-sm flex flex-col p-4">
+      <div className="w-full max-w-sm flex flex-col">
         <div className="w-full">
           <h1 className="mb-2 text-3xl font-bold text-black text-center">Log in</h1>
           <p className="text-xs text-gray-600 text-center">Please log into your account</p>

@@ -42,6 +42,11 @@ const Navbar = () => {
           {user ? (
             <>
               {/* Show TaxBot and OCR-AI buttons only if the user is logged in */}
+              <Link to="/financialanalysis">
+                <button className="text-lg font-semibold px-4 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition">
+                  Financial Analysis
+                </button>
+              </Link>
               <Link to="/taxbot">
                 <button className="text-lg font-semibold px-4 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition">
                   TaxBot

@@ -1,18 +1,13 @@
-
+/** @format */
 
 import React from "react";
 import ProfileCard from "../ProfileCard";
 import StatsCard from "../StatsCard";
 import ProblemSolved from "../ProblemSolved";
-import ContestRankings from "../ContestRankings";
 import TopicAnalysis from "../TopicAnalysis";
-import SubmissionsGraph from "../SubmissionsGraph";
-// import ProfileCard from "./components/ProfileCard";
-// import StatsCard from "./components/StatsCard";
-// import ProblemSolved from "./components/ProblemSolved";
-// import SubmissionsGraph from "./components/SubmissionsGraph";
-// import ContestRankings from "./components/ContestRankings";
-// import TopicAnalysis from "./components/TopicAnalysis";
+import SubmissionsGraph from "../SubmissionsGraph"; 
+import News from "../News";
+import Analysis from "../Analysis";
 
 const Dashboard = () => {
   return (
@@ -24,10 +19,11 @@ const Dashboard = () => {
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <SubmissionsGraph />
-        <ContestRankings />
+        <Analysis />
       </div>
-      <div>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <TopicAnalysis />
+        <News /> {/* Add the News Component here */}
       </div>
     </div>
   );

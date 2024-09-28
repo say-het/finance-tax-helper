@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
+import { GoogleGenerativeAI } from '@google/generative-ai';
+
 
 const ChatPanel = () => {
   const [input, setInput] = useState('');
@@ -81,29 +83,27 @@ const ChatPanel = () => {
       }
     }
   };
-
+  const genAI = new GoogleGenerativeAI("AIzaSyBVtbZmBLweYkN5Nd0CaXK7bmxfNgKaBNE");
+  const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
   const handleSendMessage = async (message) => {
     if (message.trim() === '') return;
 
     setChatLog((prevLog) => [...prevLog, { sender: 'user', message }]);
-    setInput('');
+    setInput(''); // Clear the input field
     setIsLoading(true);
 
     try {
-      const response = await axios.post('/api/ask', { message });
+        const result = await model.generateContent(message);
+        const ans = await result.response.text(); // Await response text properly
+        setChatLog((prevLog) => [...prevLog, { sender: 'TaxAI', message: ans }]); // Use `message` for consistency
+        console.log(ans); // Log the response text
 
-      if (response.status === 200) {
-        const { newdata } = response.data;
-        setChatLog((prevLog) => [...prevLog, { sender: 'TaxBot', message: newdata }]);
-      } else {
-        console.error('Error fetching the API');
-      }
     } catch (error) {
-      console.error('Error:', error);
+        console.error('Error:', error);
     } finally {
-      setIsLoading(false);
+        setIsLoading(false); // End loading state
     }
-  };
+};
 
   return (
     <div className="flex flex-col h-full w-full bg-white p-4 shadow-lg">
