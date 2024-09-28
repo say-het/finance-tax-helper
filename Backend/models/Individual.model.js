@@ -1,6 +1,13 @@
 const mongoose = require("mongoose");
 
 const IndividualSchema = new mongoose.Schema({
+    email: {
+        type: String,
+        required: true,
+        trim: true,
+        lowercase: true,
+        match: /.+\@.+\..+/, 
+    },
   generalInfo: {
     name: { type: String, required: true },
     panNumber: { type: String, required: true, unique: true },
@@ -34,6 +41,6 @@ const IndividualSchema = new mongoose.Schema({
   }
 });
 
-const Individual = mongoose.model("Individual", IndividualSchema);
+const Individual = mongoose.model("UserIndividualDetail", IndividualSchema);
 
 module.exports = Individual;

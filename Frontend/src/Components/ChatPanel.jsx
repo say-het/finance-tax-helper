@@ -93,8 +93,9 @@ const ChatPanel = () => {
     setIsLoading(true);
 
     try {
-        const result = await model.generateContent(message);
-        const ans = await result.response.text(); // Await response text properly
+        const result = await model.generateContent("Give in more Structural format please. "+message);
+        let ans = await result.response.text();
+        ans = ans.replace(/[#*]/g, '');  // Await response text properly
         setChatLog((prevLog) => [...prevLog, { sender: 'TaxAI', message: ans }]); // Use `message` for consistency
         console.log(ans); // Log the response text
 
@@ -112,7 +113,7 @@ const ChatPanel = () => {
         <div className="flex flex-col space-y-2">
           {chatLog.map((entry, index) => (
             <div key={index} className="mb-2">
-              <p className={entry.sender === 'user' ? 'text-right text-blue-500' : 'text-left text-blue-500'}>
+              <p className={entry.sender === 'user' ? 'text-right text-black' : 'text-left text-black'}>
                 <strong>{entry.sender}:</strong> {entry.message}
               </p>
             </div>
