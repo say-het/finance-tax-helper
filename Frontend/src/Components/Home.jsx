@@ -96,7 +96,7 @@ const HomePage = () => {
         </div>
         <div className="w-1/2">
           <img
-            src="https://via.placeholder.com/500x400"
+            src="https://t3.ftcdn.net/jpg/06/47/70/98/360_F_647709880_x2rGLVvVphtwoWuM88RGqY19xdng0GV9.jpg"
             alt="Illustration"
             className="mx-auto"
           />
