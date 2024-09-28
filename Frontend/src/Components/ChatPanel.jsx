@@ -46,7 +46,7 @@ const ChatPanel = () => {
   }, [language]);
 
   const toggleLanguage = () => {
-    setLanguage(prevLang => prevLang === 'en-US' ? 'hi-IN' : 'en-US');
+    setLanguage(prevLang => (prevLang === 'en-US' ? 'hi-IN' : 'en-US'));
   };
 
   const handleStart = () => {
@@ -106,19 +106,19 @@ const ChatPanel = () => {
   };
 
   return (
-    <div className="flex flex-col h-full w-full bg-[#FDF5E6] p-4">
+    <div className="flex flex-col h-full w-full bg-white p-4 shadow-lg">
       <h2 className="text-lg font-bold text-black mb-2">TaxBot</h2>
-      <div className="flex-1 overflow-y-auto p-4 border border-[#BC885D] rounded-lg">
+      <div className="flex-1 overflow-y-auto p-4 border border-blue-500 rounded-lg bg-white">
         <div className="flex flex-col space-y-2">
           {chatLog.map((entry, index) => (
             <div key={index} className="mb-2">
-              <p className={entry.sender === 'user' ? 'text-right text-black' : 'text-left text-black'}>
+              <p className={entry.sender === 'user' ? 'text-right text-blue-500' : 'text-left text-blue-500'}>
                 <strong>{entry.sender}:</strong> {entry.message}
               </p>
             </div>
           ))}
           {isLoading && (
-            <span className="loading loading-dots loading-lg text-[#BC885D]"></span>
+            <span className="loading loading-dots loading-lg text-blue-500"></span>
           )}
           <div ref={chatEndRef} />
         </div>
@@ -127,7 +127,7 @@ const ChatPanel = () => {
         <div className="flex items-center space-x-2">
           <button
             onClick={isListening ? handleStop : handleStart}
-            className={`py-2 px-4 ${isListening ? 'bg-[#BC885D]' : 'bg-[#FDF5E6]'} text-black rounded-full shadow-md`}
+            className={`py-2 px-4 ${isListening ? 'bg-blue-500' : 'bg-white'} text-black rounded-full shadow-md transition duration-150`}
           >
             {isListening ? 'Stop' : 'Speak'}
           </button>
@@ -137,7 +137,7 @@ const ChatPanel = () => {
             defaultChecked 
             onClick={toggleLanguage}
           />
-          <span className="text-[#BC885D]">Toggle Language (Current: {language})</span>
+          <span className="text-blue-500">Toggle Language (Current: {language})</span>
         </div>
         <div className="flex mt-2">
           <input
@@ -147,12 +147,12 @@ const ChatPanel = () => {
             onKeyDown={(e) => {
               if (e.key === 'Enter') handleSendMessage(input);
             }}
-            className="input input-bordered w-full flex-1 border-[#BC885D] bg-[#FDF5E6] text-black"
+            className="input input-bordered w-full flex-1 border-blue-500 bg-white text-black"
             placeholder="Type a message..."
           />
           <button
             onClick={() => handleSendMessage(input)}
-            className="py-2 px-4 ml-2 bg-[#BC885D] text-white rounded-full shadow-md"
+            className="py-2 px-4 ml-2 bg-blue-500 text-white rounded-full shadow-md transition duration-150"
           >
             Send
           </button>

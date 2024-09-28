@@ -1,30 +1,52 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { auth } from '../firebase'; // Import your Firebase configuration
+import { signOut } from 'firebase/auth'; // Firebase signOut method
+import { toast } from 'react-toastify'; // For showing logout success message
+import 'react-toastify/dist/ReactToastify.css'; // Toastify styles
 
 const Navbar = () => {
+  const navigate = useNavigate();
+
+  // Handle logout function
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      toast.success('Logged out successfully');
+      navigate('/login'); // Redirect to login page after logout
+    } catch (error) {
+      toast.error('Failed to log out: ' + error.message);
+    }
+  };
+
   return (
-    <div>
-      <div className="navbar px-8 py-3 my-4 rounded-3xl shadow-[0_0_20px_rgba(188,136,93,0.8)] bg-[#FDF5E6]">
+    <div className="bg-[#f2f2f2] shadow-lg p-4">
+      <nav className="navbar px-6 py-4">
         <div className="flex-1">
-          <a className="text-2xl font-bold ml-2 text-black">TaxAI</a>
+          <Link to="/" className="text-3xl font-bold text-black hover:text-blue-500 transition-colors">
+            TaxAI
+          </Link>
         </div>
 
-        <div className="flex-none gap-8">
+        <div className="flex-none gap-4">
           <Link to="/taxbot">
-            <button className="text-xl font-bold px-8 py-2 rounded-full bg-[#BC885D] text-black">
+            <button className="text-lg font-semibold px-4 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition">
               TaxBot
             </button>
           </Link>
-          <button className="text-xl font-bold px-8 py-2 rounded-full bg-[#BC885D] text-black">
-            OCR-AI
-          </button>
+          <Link to="/ocr-ai">
+            <button className="text-lg font-semibold px-4 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition">
+              OCR-AI
+            </button>
+          </Link>
+
           <div className="dropdown dropdown-end">
             <div
               tabIndex={0}
               role="button"
               className="btn btn-ghost btn-circle avatar"
             >
-              <div className="w-12 rounded-full">
+              <div className="w-10 rounded-full">
                 <img
                   alt="User Avatar"
                   src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
@@ -33,27 +55,30 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content rounded-box z-[1] mt-3 w-52 p-2 shadow bg-[#BC885D] text-black"
+              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-white rounded-md w-40"
             >
               <li>
-                <a className="justify-between hover:bg-[#FDF5E6] transition-colors duration-300">
+                <Link to="/profile" className="text-gray-800 hover:bg-gray-100 p-2 rounded-md transition">
                   Profile
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="hover:bg-[#FDF5E6] transition-colors duration-300">
+                <Link to="/settings" className="text-gray-800 hover:bg-gray-100 p-2 rounded-md transition">
                   Settings
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="hover:bg-[#FDF5E6] transition-colors duration-300">
+                <a
+                  onClick={handleLogout}
+                  className="text-gray-800 hover:bg-gray-100 p-2 rounded-md transition cursor-pointer"
+                >
                   Logout
                 </a>
               </li>
             </ul>
           </div>
         </div>
-      </div>
+      </nav>
     </div>
   );
 };
