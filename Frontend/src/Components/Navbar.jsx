@@ -39,59 +39,65 @@ const Navbar = () => {
         </div>
 
         <div className="flex-none gap-4">
-          <Link to="/taxbot">
-            <button className="text-lg font-semibold px-4 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition">
-              TaxBot
-            </button>
-          </Link>
-          <Link to="/ocr-ai">
-            <button className="text-lg font-semibold px-4 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition">
-              OCR-AI
-            </button>
-          </Link>
-
           {user ? (
-            // Show avatar and dropdown if user is logged in
-            <div className="dropdown dropdown-end">
-              <div
-                tabIndex={0}
-                role="button"
-                className="btn btn-ghost btn-circle avatar"
-              >
-                <div className="w-10 rounded-full">
-                  <img
-                    alt="User Avatar"
-                    src={user.photoURL || "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"}
-                  />
-                </div>
-              </div>
-              <ul
-                tabIndex={0}
-                className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-white rounded-md w-40"
-              >
-                <li>
-                  <Link to="/profile" className="text-gray-800 hover:bg-gray-100 p-2 rounded-md transition">
-                    Profile
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/settings" className="text-gray-800 hover:bg-gray-100 p-2 rounded-md transition">
-                    Settings
-                  </Link>
-                </li>
-                <li>
-                  <a
-                    onClick={handleLogout}
-                    className="text-gray-800 hover:bg-gray-100 p-2 rounded-md transition cursor-pointer"
-                  >
-                    Logout
-                  </a>
-                </li>
-              </ul>
-            </div>
-          ) : (
-            // Show Login and Signup buttons if user is not logged in
             <>
+              {/* Show TaxBot and OCR-AI buttons only if the user is logged in */}
+              <Link to="/taxbot">
+                <button className="text-lg font-semibold px-4 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition">
+                  TaxBot
+                </button>
+              </Link>
+              <Link to="/ocr-ai">
+                <button className="text-lg font-semibold px-4 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition">
+                  OCR-AI
+                </button>
+              </Link>
+
+              {/* Show avatar and dropdown if user is logged in */}
+              <div className="dropdown dropdown-end">
+                <div
+                  tabIndex={0}
+                  role="button"
+                  className="btn btn-ghost btn-circle avatar"
+                >
+                  <div className="w-10 rounded-full">
+                    <img
+                      alt="User Avatar"
+                      src={
+                        user.photoURL ||
+                        'https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp'
+                      }
+                    />
+                  </div>
+                </div>
+                <ul
+                  tabIndex={0}
+                  className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-white rounded-md w-40"
+                >
+                  <li>
+                    <Link to="/profile" className="text-gray-800 hover:bg-gray-100 p-2 rounded-md transition">
+                      Profile
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/settings" className="text-gray-800 hover:bg-gray-100 p-2 rounded-md transition">
+                      Settings
+                    </Link>
+                  </li>
+                  <li>
+                    <a
+                      onClick={handleLogout}
+                      className="text-gray-800 hover:bg-gray-100 p-2 rounded-md transition cursor-pointer"
+                    >
+                      Logout
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </>
+          ) : (
+            <>
+              {/* Show Login and Signup buttons if user is not logged in */}
               <Link to="/login">
                 <button className="text-lg font-semibold px-4 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition">
                   Login
