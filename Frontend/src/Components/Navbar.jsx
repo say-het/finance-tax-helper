@@ -47,6 +47,11 @@ const Navbar = () => {
                   Financial Analysis
                 </button>
               </Link>
+              <Link to="/financialanalysis2">
+                <button className="text-lg font-semibold px-4 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition">
+                  Financial Analysis 2
+                </button>
+              </Link>
               <Link to="/taxbot">
                 <button className="text-lg font-semibold px-4 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition">
                   TaxBot

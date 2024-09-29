@@ -5,9 +5,11 @@ import Login from "./Components/Login";
 import Signup from "./Components/Signup";
 import OCR from "./Components/Ocr";
 import Home from "./Components/Home";
-import AllForms from "./AllForms";
+import MultiStepForm from "./Components/MultiStepForm";
+import MultiStepForm2 from "./Components/MultiStepForm2";
 import Dashboard from "./Components/Dashboard/Page/Dashboard";
-
+import TransactionHistory from "./Components/Transactions";
+import './App.css'
 export default function App() {
   return (
     // <AuthContextCheckState>
@@ -17,12 +19,14 @@ export default function App() {
         <div className="flex-1">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/financialanalysis/*" element={<AllForms />} /> Updated to handle nested paths
+            <Route path="/financialanalysis/*" element={<MultiStepForm />} /> Updated to handle nested paths
+            <Route path="/financialanalysis2/*" element={<MultiStepForm2 />} /> Updated to handle nested paths
             <Route path="/taxbot" element={<ChatPanel />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/ocr-ai" element={<OCR />} />
             <Route path="/profile" element={<Dashboard />} />
+            <Route path="/transactions" element={< TransactionHistory/>} />
             {/* Add other routes as needed */}
           </Routes>
         </div>
