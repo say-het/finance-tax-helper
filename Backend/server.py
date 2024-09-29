@@ -1,8 +1,11 @@
-from flask import Flask,jsonify,request
+from flask import Flask, jsonify, request
 from pymongo.errors import PyMongoError
-from database import db_connetion
+from database import db_connection
 from bson import ObjectId
-app = Flask(_name_)
+import logging
+
+app = Flask(__name__)
+app.logger.setLevel(logging.DEBUG)
 
 
 def convert_objectid_to_str(data):
@@ -14,26 +17,30 @@ def convert_objectid_to_str(data):
         return str(data)
     return data
 
-@app.route("/generateReport" ,methods=["GET"])
-def get_members() :
-    print("yes i am called")
-    try:
-        email = "skjgjfhgj@gmail.com"
-        if not email:
-            return jsonify({"error": "Email is required"}), 400
-        print(email)
-        collection = db_connetion.get_collection("useroragnizationdetails")
 
-        latest_data = collection.find({"emailId": "skjgjfhgj@gmail.com"}).sort("_id", -1).limit(1)
-        latest_data = list(latest_data)
+@app.route("/generateReport", methods=["GET"])
+def get_members():
+    email = request.args.get("email", None)
+    if not email:
+        return jsonify({"error": "Email query parameter is required"}), 400
+
+    app.logger.debug(f"generateReport called for email={email}")
+
+    try:
+        collection = db_connection.get_collection("user_organization_details")
+        cursor = collection.find({"emailId": email}).sort("_id", -1).limit(1)
+        latest_data = list(cursor)
         latest_data = convert_objectid_to_str(latest_data)
-        
+
+    except PyMongoError as pe:
+        app.logger.error(f"MongoDB error: {pe}", exc_info=True)
+        return jsonify({"error": "Database error"}), 500
     except Exception as e:
-        print(f"Error fetching data: {e}")
-        return jsonify({"error": "Failed to fetch data from the database"}), 500
+        app.logger.error(f"Unexpected error: {e}", exc_info=True)
+        return jsonify({"error": "Internal server error"}), 500
 
     return jsonify(latest_data), 200
 
 
-if _name_ == "_main_" : 
+if __name__ == "__main__":
     app.run(debug=True)
