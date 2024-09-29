@@ -96,7 +96,7 @@ const ChatPanel = () => {
         const result = await model.generateContent("Give in more Structural format please. "+message);
         let ans = await result.response.text();
         ans = ans.replace(/[#*]/g, '');  // Await response text properly
-        setChatLog((prevLog) => [...prevLog, { sender: 'TaxAI', message: ans }]); // Use `message` for consistency
+        setChatLog((prevLog) => [...prevLog, { sender: 'FinTaxAI', message: ans }]); // Use `message` for consistency
         console.log(ans); // Log the response text
 
     } catch (error) {

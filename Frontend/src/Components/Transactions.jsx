@@ -1,5 +1,3 @@
-// TransactionHistory.js
-
 import React, { useState } from "react";
 import * as XLSX from "xlsx";
 
@@ -59,49 +57,48 @@ const TransactionHistory = ({ initialTransactions }) => {
   };
 
   return (
-    <div className="container mx-auto my-4 ">
-      <h2 className="text-2xl font-bold mb-4">Transaction History</h2>
-      <table className="min-w-full bg-white border border-gray-300">
+    <div className="container mx-auto my-8 p-6 bg-white shadow-lg rounded-lg max-w-5xl text-black">
+      {/* Title */}
+      <h2 className="text-3xl font-extrabold text-black mb-6 text-center">Transaction History</h2>
+
+      {/* Transaction Table */}
+      <table className="min-w-full bg-white border border-gray-200 rounded-lg shadow-lg overflow-hidden">
         <thead>
-          <tr className="bg-[#3C3D37] text-[#ECDFCC]">
-            <th className="px-4 py-2">Date</th>
-            <th className="px-4 py-2">Purpose</th>
-            <th className="px-4 py-2">Paid To</th>
-            <th className="px-4 py-2">Amount</th>
+          <tr className="bg-[#3C3D37] text-[#ECDFCC] text-left">
+            <th className="px-6 py-3">Date</th>
+            <th className="px-6 py-3">Purpose</th>
+            <th className="px-6 py-3">Paid To</th>
+            <th className="px-6 py-3">Amount</th>
           </tr>
         </thead>
         <tbody>
           {transactions.map((transaction, index) => (
-            <tr key={index} className="bg-[#ECDFCC] border-b border-gray-300">
-              <td className="px-4 py-2">{transaction[0]}</td>
-              <td className="px-4 py-2">{transaction[1]}</td>
-              <td className="px-4 py-2">{transaction[2]}</td>
-              <td className="px-4 py-2">{transaction[3].toFixed(2)}</td>
+            <tr key={index} className="hover:bg-[#ECDFCC] border-b border-gray-300 transition duration-300">
+              <td className="px-6 py-4">{transaction[0]}</td>
+              <td className="px-6 py-4">{transaction[1]}</td>
+              <td className="px-6 py-4">{transaction[2]}</td>
+              <td className="px-6 py-4 text-right">{transaction[3].toFixed(2)}</td>
             </tr>
           ))}
         </tbody>
         <tfoot>
-          <tr className="bg-[#3C3D37] text-[#ECDFCC] font-bold">
-            <td colSpan="3" className="px-4 py-2 text-right">
-              Total Amount:
-            </td>
-            <td className="px-4 py-2">{totalAmount.toFixed(2)}</td>
+          <tr className="bg-[#3C3D37] text-black">
+            <td colSpan="3" className="px-6 py-4 text-right font-bold">Total Amount:</td>
+            <td className="px-6 py-4 text-right font-bold">{totalAmount.toFixed(2)}</td>
           </tr>
         </tfoot>
       </table>
 
+      {/* Add New Transaction Section */}
       <div className="mt-8">
-        <h3 className="text-xl font-bold mb-4 ">Add New Transaction</h3>
-        <form
-          onSubmit={addTransaction}
-          className="grid grid-cols-1 md:grid-cols-4 gap-4"
-        >
+        <h3 className="text-xl font-bold mb-4 text-black">Add New Transaction</h3>
+        <form onSubmit={addTransaction} className="grid grid-cols-1 md:grid-cols-4 gap-4">
           <input
             type="date"
             name="date"
             value={newTransaction.date}
             onChange={handleChange}
-            className="border px-4 py-2 bg-[#ECDFCC]"
+            className="border px-4 py-2 rounded-lg bg-[#f5f5f5] focus:outline-none focus:ring-2 focus:ring-[#3C3D37] transition-all"
             placeholder="Date"
           />
           <input
@@ -109,7 +106,7 @@ const TransactionHistory = ({ initialTransactions }) => {
             name="purpose"
             value={newTransaction.purpose}
             onChange={handleChange}
-            className="border px-4 py-2 bg-[#ECDFCC]"
+            className="border px-4 py-2 rounded-lg bg-[#f5f5f5] focus:outline-none focus:ring-2 focus:ring-[#3C3D37] transition-all"
             placeholder="Purpose"
           />
           <input
@@ -117,7 +114,7 @@ const TransactionHistory = ({ initialTransactions }) => {
             name="paidTo"
             value={newTransaction.paidTo}
             onChange={handleChange}
-            className="border px-4 py-2 bg-[#ECDFCC]"
+            className="border px-4 py-2 rounded-lg bg-[#f5f5f5] focus:outline-none focus:ring-2 focus:ring-[#3C3D37] transition-all"
             placeholder="Paid To"
           />
           <input
@@ -125,24 +122,27 @@ const TransactionHistory = ({ initialTransactions }) => {
             name="amount"
             value={newTransaction.amount}
             onChange={handleChange}
-            className="border px-4 py-2 bg-[#ECDFCC]"
+            className="border px-4 py-2 rounded-lg bg-[#f5f5f5] focus:outline-none focus:ring-2 focus:ring-[#3C3D37] transition-all"
             placeholder="Amount"
           />
           <button
             type="submit"
-            className="md:col-span-4 mt-4 bg-[#3C3D37] text-[#ECDFCC] font-bold px-4 py-2 rounded hover:bg-[#ECDFCC] hover:text-[#3C3D37] transition-all"
+            className="md:col-span-4 mt-4 bg-[#3C3D37] text-[#ECDFCC] font-bold px-4 py-2 rounded-lg hover:bg-[#ECDFCC] hover:text-[#3C3D37] transition-all"
           >
             Add Transaction
           </button>
         </form>
       </div>
 
-      <button
-        onClick={downloadExcel}
-        className="md:col-span-4 mt-4 bg-[#3C3D37] text-[#ECDFCC] font-bold px-4 py-2 rounded hover:bg-[#ECDFCC] hover:text-[#3C3D37] transition-all"
-      >
-        Download Excel
-      </button>
+      {/* Download Excel Button */}
+      <div className="mt-4 text-center">
+        <button
+          onClick={downloadExcel}
+          className="mt-4 bg-[#3C3D37] text-[#ECDFCC] font-bold px-6 py-3 rounded-lg hover:bg-[#ECDFCC] hover:text-[#3C3D37] transition-all"
+        >
+          Download Excel
+        </button>
+      </div>
     </div>
   );
 };

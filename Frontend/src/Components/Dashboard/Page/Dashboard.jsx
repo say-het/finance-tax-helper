@@ -86,7 +86,7 @@ const response = await fetch("http://127.0.0.1:5000/getDetailsFromMongo", {
             {/* Generate OCR Button */}
             <div className="bg-[#FFFFFF] rounded-lg p-6 shadow-lg hover:shadow-2xl transition-shadow duration-500 mt-4">
               <button onClick={generateReport} className="w-full bg-green-500 hover:bg-green-600 text-white py-2 rounded-lg">
-                Generate OCR
+                Generate AI
               </button>
             </div>
           </div>

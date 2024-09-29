@@ -34,7 +34,7 @@ const Navbar = () => {
       <nav className="navbar px-6 py-4">
         <div className="flex-1">
           <Link to="/" className="text-3xl font-bold text-black hover:text-[#c18e35] transition-colors">
-            TaxAI
+            FinTaxAI
           </Link>
         </div>
 

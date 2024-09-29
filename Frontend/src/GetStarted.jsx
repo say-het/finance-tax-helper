@@ -7,7 +7,7 @@ const ButtonWithImage = ({ onClick, imgSrc, text }) => {
             onClick={onClick}
             className="flex flex-col hover:bg-[#ebd4ad] items-center w-[45%] h-max p-6 bg-black bg-opacity-25 backdrop-blur-md border rounded-lg shadow-md hover:bg-opacity-70 transition transform hover:scale-105 focus:outline-none"
         >
-            <img src={imgSrc} alt={text} className="w-96  h-80 mb-4 rounded-lg" />
+            <img src={imgSrc} alt={text} className="w-96 h-80 mb-4 rounded-lg" />
             <span className="text-3xl font-bold text-black">{text}</span>
         </button>
     );
@@ -26,6 +26,11 @@ const DualButtonComponent = () => {
 
     return (
         <div className="min-h-screen bg-[#ebd4ad] flex flex-col items-center justify-center">
+            {/* Heading added at the top */}
+            <h1 className="text-4xl font-bold text-black mb-12">
+                Who Are You?
+            </h1>
+
             <div className="flex justify-between w-full max-w-4xl">
                 {/* Left Button with Image */}
                 <ButtonWithImage

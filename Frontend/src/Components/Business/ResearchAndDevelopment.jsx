@@ -69,12 +69,7 @@ const ResearchAndDevelopment = ({ nextStep }) => {
           </div>
 
           <div className="mt-8 flex justify-center space-x-4">
-            <button
-              onClick={() => navigate(-1)} // Navigate back to the previous page
-              className="w-40 bg-gray-400 text-white py-2 px-4 rounded-md hover:bg-gray-500 transition duration-300 shadow-md"
-            >
-              Prev Page
-            </button>
+            
             <button
               type="submit" // Ensure this is a submit button
               className="w-40 bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition duration-300 shadow-md"
