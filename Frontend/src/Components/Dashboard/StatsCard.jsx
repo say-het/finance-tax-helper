@@ -2,7 +2,7 @@ import React from "react";
 
 function StatsCard({ income, expenses }) {
   return (
-    <div className="bg-white rounded-lg p-6 shadow-md flex flex-col justify-between">
+    <div className="bg-white rounded-lg p-6 shadow-md flex flex-col justify-between text-black  ">
       <h2 className="text-xl font-bold mb-4 text-center">
         Statistics Overview
       </h2>

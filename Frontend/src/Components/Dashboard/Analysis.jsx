@@ -72,7 +72,7 @@ function Analysis() {
     },
   };
   return (
-    <div className="bg-white rounded-lg p-6 shadow-lg hover:shadow-2xl transition-shadow duration-500">
+    <div className="bg-white text-black   rounded-lg p-6 shadow-lg hover:shadow-2xl transition-shadow duration-500">
       <h2 className="text-xl font-bold mb-4">Analysis</h2>
       <div className="flex justify-around">
         <div className="text-center">

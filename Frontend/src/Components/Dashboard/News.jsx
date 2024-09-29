@@ -15,7 +15,7 @@ const News = () => {
   }, []);
 
   return (
-    <div className="bg-white p-4 rounded-lg shadow-md shadow-lg hover:shadow-2xl transition-shadow duration-500">
+    <div className="bg-white text-black   p-4 rounded-lg shadow-md shadow-lg hover:shadow-2xl transition-shadow duration-500">
       <h2 className="text-2xl font-semibold mb-4">Latest News</h2>
       <ul>
         {articles.slice(0, 3).map((article, index) => (

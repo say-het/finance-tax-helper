@@ -2,12 +2,12 @@ import React from 'react';
 
 function ProfileCard({ generalInfo }) {
   return (
-    <div className="bg-[#FFFFFF] rounded-lg p-6">
+    <div className="bg-[#FFFFFF] rounded-lg p-6 text-black  ">
       <div className="flex items-center space-x-4">
         <div className="rounded-full bg-green-400 w-16 h-16"></div>
         <div>
           <h2 className="text-xl font-bold">{generalInfo.name}</h2>
-          <p className="text-sm text-gray-400">
+          <p className="text-sm text-black">
             {generalInfo.city}, {generalInfo.state}
           </p>
           <p className="text-sm">PAN: {generalInfo.panNumber}</p>

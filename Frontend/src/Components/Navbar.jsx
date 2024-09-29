@@ -33,7 +33,7 @@ const Navbar = () => {
     <div className="bg-[#f2f2f2] shadow-lg p-4">
       <nav className="navbar px-6 py-4">
         <div className="flex-1">
-          <Link to="/" className="text-3xl font-bold text-black hover:text-blue-500 transition-colors">
+          <Link to="/" className="text-3xl font-bold text-black hover:text-[#c18e35] transition-colors">
             TaxAI
           </Link>
         </div>
@@ -42,31 +42,22 @@ const Navbar = () => {
           {user ? (
             <>
               {/* Show TaxBot and OCR-AI buttons only if the user is logged in */}
-              <Link to="/financialanalysis">
-                <button className="text-lg font-semibold px-4 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition">
-                  Financial Analysis
-                </button>
-              </Link>
-              <Link to="/financialanalysis2">
-                <button className="text-lg font-semibold px-4 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition">
-                  Financial Analysis 2
-                </button>
-              </Link>
               <Link to="/taxbot">
-                <button className="text-lg font-semibold px-4 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition">
-                  TaxBot
-                </button>
-              </Link>
-              <Link to="/seetransations">
-                <button className="text-lg font-semibold px-4 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition">
-                  See Transactions
-                </button>
-              </Link>
-              <Link to="/ocr-ai">
-                <button className="text-lg font-semibold px-4 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition">
-                  OCR-AI
-                </button>
-              </Link>
+  <button className="text-lg font-semibold px-4 py-2 rounded-md bg-transparent text-black hover:bg-[#ebd4ad]   transition">
+    TaxBot
+  </button>
+</Link>
+<Link to="/seetransations">
+  <button className="text-lg font-semibold px-4 py-2 rounded-md bg-transparent text-black hover:bg-[#ebd4ad] transition">
+    See Transactions
+  </button>
+</Link>
+<Link to="/ocr-ai">
+  <button className="text-lg font-semibold px-4 py-2 rounded-md bg-transparent text-black hover:bg-[#ebd4ad] transition">
+    OCR-AI
+  </button>
+</Link>
+
 
               {/* Show avatar and dropdown if user is logged in */}
               <div className="dropdown dropdown-end">

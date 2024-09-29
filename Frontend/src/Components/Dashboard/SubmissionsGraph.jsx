@@ -79,7 +79,7 @@ function SubmissionsGraph() {
   };
 
   return (
-    <div className="bg-[#FFFFFF] rounded-lg p-6">
+    <div className="bg-[#FFFFFF] text-black   rounded-lg p-6">
       <h2 className="text-xl font-bold mb-4">Tax Filings and Deductions</h2>
       <Line data={data} options={options} />
     </div>

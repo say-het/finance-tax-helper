@@ -124,7 +124,7 @@ const OCR = () => {
                             className="h-full object-contain rounded-lg"
                         />
                     ) : (
-                        <span className="text-gray-400">No Image Selected</span>
+                        <span className="text-black">No Image Selected</span>
                     )}
                 </div>
                 <label className="block w-full">
@@ -226,7 +226,7 @@ export default OCR;
 //           {selectedImage ? (
 //             <img src={selectedImage} alt="Uploaded" className="h-full object-contain rounded-lg" />
 //           ) : (
-//             <span className="text-gray-400">No Image Selected</span>
+//             <span className="text-black">No Image Selected</span>
 //           )}
 //         </div>
 //         <label className="block w-full">

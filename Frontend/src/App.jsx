@@ -4,6 +4,7 @@ import ChatPanel from "./Components/ChatPanel";
 import Login from "./Components/Login";
 import Signup from "./Components/Signup";
 import OCR from "./Components/Ocr";
+import GetStarted from "./GetStarted";
 import Home from "./Components/Home";
 import MultiStepForm from "./Components/MultiStepForm";
 import MultiStepForm2 from "./Components/MultiStepForm2";
@@ -31,6 +32,7 @@ export default function App() {
             <Route path="/profile" element={<Dashboard />} />
             <Route path="/transactions" element={< TransactionHistory/>} />
             <Route path="/seetransations" element={<SeeTransaction/>}/>
+            <Route path="/get-started" element={<GetStarted/>}/>
             {/* Add other routes as needed */}
           </Routes>
         </div>
