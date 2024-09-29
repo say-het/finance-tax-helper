@@ -15,10 +15,10 @@ const News = () => {
   }, []);
 
   return (
-    <div className="bg-white p-4 rounded-lg shadow-md">
+    <div className="bg-white p-4 rounded-lg shadow-md shadow-lg hover:shadow-2xl transition-shadow duration-500">
       <h2 className="text-2xl font-semibold mb-4">Latest News</h2>
       <ul>
-        {articles.slice(0, 5).map((article, index) => (
+        {articles.slice(0, 3).map((article, index) => (
           <li key={index} className="mb-4">
             <a
               href={article.url}

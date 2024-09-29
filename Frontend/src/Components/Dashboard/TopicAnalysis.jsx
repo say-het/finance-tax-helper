@@ -1,34 +1,45 @@
-/** @format */
 
 import React from "react";
 
 function TopicAnalysis() {
+  const deadline = "31st December 2024";
+  const reminders = [
+    "Ensure all deductions are claimed correctly.",
+    "Verify bank details for tax refunds.",
+    "Cross-check income from all sources.",
+  ];
   return (
-    <div className="bg-[#FFFFFF] rounded-lg p-6">
-      <h2 className="text-xl font-bold mb-4">Tax Topic Analysis</h2>
-      <div className="space-y-4">
-        {[
-          { topic: "Income Tax", count: 50 },
-          { topic: "Deductions", count: 30 },
-          { topic: "Filing Status", count: 20 },
-          { topic: "Tax Refund", count: 15 },
-          { topic: "Capital Gains", count: 10 },
-          { topic: "Tax Compliance", count: 8 },
-          { topic: "Audit Risks", count: 5 },
-          { topic: "Tax Credits", count: 5 },
-        ].map(({ topic, count }) => (
-          <div key={topic} className="flex justify-between items-center">
-            <span className="text-lg">{topic}</span>
-            <span className="text-xl font-bold">{count}</span>
-            <div className="w-2/3 bg-gray-200 rounded-full h-4 ml-4">
-              <div
-                className="bg-green-500 h-4 rounded-full"
-                style={{ width: `${count * 2}%` }} // Adjust the multiplier for better visualization
-              />
-            </div>
-          </div>
-        ))}
+    <div className="p-4 mb-4 bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 rounded-lg shadow-md">
+      <div className="flex items-center">
+        <svg
+          className="w-6 h-6 mr-2 text-yellow-500"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M13 16h-1v-4h-1m1-4h.01M12 2a10 10 0 100 20 10 10 0 000-20z"
+          />
+        </svg>
+        <h3 className="font-semibold text-lg">Important Deadline Reminder</h3>
       </div>
+      <p className="mt-2 text-sm">
+        <strong>ITR Submission Deadline:</strong> {deadline}
+      </p>
+      {reminders.length > 0 && (
+        <div className="mt-2">
+          <strong>Other Important Reminders:</strong>
+          <ul className="list-disc list-inside mt-1 text-sm">
+            {reminders.map((reminder, index) => (
+              <li key={index}>{reminder}</li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 }
