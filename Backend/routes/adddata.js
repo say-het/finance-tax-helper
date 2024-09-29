@@ -1,6 +1,7 @@
 const express = require("express");
 const Individual = require("../models/Individual.model");
-const Business = require("../models/Business.model"); // Make sure you have this model defined
+const Business = require("../models/Business.model"); 
+const TransacationModel = require("../models/Transaction.model")
 
 const router = express.Router();
 
@@ -10,7 +11,7 @@ router.post("/addIndividualData", async (req, res) => {
         console.log("Adding individual details");
         const individualDetail = new Individual(req.body);
         await individualDetail.save();
-            
+
         return res.status(200).json({ 
             message: 'Individual detail added successfully', 
             data: individualDetail, 
@@ -45,5 +46,23 @@ router.post("/addOrganizationData", async (req, res) => {
         });
     }
 });
+
+router.post("/getIndividualTranscationDetail",
+    async  (req,res) => {
+        console.log("ys")
+        console.log(req.body.email)
+    let user = await TransacationModel.find().where({email : req.body.email});
+    return res.json(user)
+})
+
+router.post("/addTransactionDetail",
+    async (req,res) => {
+        const transacationDetail = new TransacationModel(req.body);
+        await transacationDetail.save();
+
+        return res.status(201).json({ message: 'User organization detail added successfully', data: transacationDetail , status : 201 });
+    }
+)
+
 
 module.exports = router;

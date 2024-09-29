@@ -57,6 +57,11 @@ const Navbar = () => {
                   TaxBot
                 </button>
               </Link>
+              <Link to="/seetransations">
+                <button className="text-lg font-semibold px-4 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition">
+                  See Transactions
+                </button>
+              </Link>
               <Link to="/ocr-ai">
                 <button className="text-lg font-semibold px-4 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition">
                   OCR-AI

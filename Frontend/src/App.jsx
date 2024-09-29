@@ -9,6 +9,9 @@ import MultiStepForm from "./Components/MultiStepForm";
 import MultiStepForm2 from "./Components/MultiStepForm2";
 import Dashboard from "./Components/Dashboard/Page/Dashboard";
 import TransactionHistory from "./Components/Transactions";
+import SeeTransaction from "./Components/seeTransaction";
+
+
 import './App.css'
 export default function App() {
   return (
@@ -27,6 +30,7 @@ export default function App() {
             <Route path="/ocr-ai" element={<OCR />} />
             <Route path="/profile" element={<Dashboard />} />
             <Route path="/transactions" element={< TransactionHistory/>} />
+            <Route path="/seetransations" element={<SeeTransaction/>}/>
             {/* Add other routes as needed */}
           </Routes>
         </div>

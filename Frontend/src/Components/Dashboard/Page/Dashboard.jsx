@@ -9,7 +9,46 @@ import Analysis from "../Analysis";
 
 const Dashboard = () => {
   const [userData, setUserData] = useState(null);
+  const generateReport = async () => {
+    console.log("Generating report...");
+    try {
+      // const response = await fetch("http://127.0.0.1:5000/getDetailsFromMongo", {
+      //   method: "POST",
+      // });
 
+
+//
+
+
+const response = await fetch("http://127.0.0.1:5000/getDetailsFromMongo", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({ email : localStorage.getItem("userEmail") })
+});
+
+
+//
+
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.setAttribute('download', 'Tax_Deduction_Report.pdf');
+      document.body.appendChild(link);
+      link.click();
+      link.parentNode.removeChild(link);
+    } catch (error) {
+      console.error("Error generating report:", error);
+      alert("Failed to generate report. Please try again later.");
+    }
+  }
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -46,7 +85,7 @@ const Dashboard = () => {
  
             {/* Generate OCR Button */}
             <div className="bg-[#FFFFFF] rounded-lg p-6 shadow-lg hover:shadow-2xl transition-shadow duration-500 mt-4">
-              <button className="w-full bg-green-500 hover:bg-green-600 text-white py-2 rounded-lg">
+              <button onClick={generateReport} className="w-full bg-green-500 hover:bg-green-600 text-white py-2 rounded-lg">
                 Generate OCR
               </button>
             </div>
