@@ -50,10 +50,10 @@ Whether you’re an individual or a business, our platform offers support tailor
 ---
 
 ![Screenshot 2024-09-29 152505](https://github.com/user-attachments/assets/6d0de795-4b07-48c1-8bd4-c3deafc28a7b)
+![Screenshot 2024-09-29 151917](https://github.com/user-attachments/assets/c488b0dd-0c48-4420-81f2-28f66c6267e5)
 ![Screenshot 2024-09-29 152113](https://github.com/user-attachments/assets/fb20dca4-5e54-4640-8fe4-8e94fe08bd0d)
 ![Screenshot 2024-09-29 151606](https://github.com/user-attachments/assets/c8a6d7d2-164d-4573-834b-4ceb2d249d8f)
-![Screenshot 2024-09-29 151917](https://github.com/user-attachments/assets/c488b0dd-0c48-4420-81f2-28f66c6267e5)
 ![Screenshot 2024-09-29 151728](https://github.com/user-attachments/assets/6758dcee-2ff8-46cd-a542-59854720268f)
 ![Screenshot 2024-09-29 151906](https://github.com/user-attachments/assets/35daaa4c-91b6-490d-89da-8a9880c922a6)
-![Screenshot 2024-09-29 151155](https://github.com/user-attachments/assets/65a501b0-08e9-4983-9416-32b86f72918f)
 ![Screenshot 2024-09-29 151838](https://github.com/user-attachments/assets/ecd133b8-4e24-433c-9169-b58d28395101)
+![Screenshot 2024-09-29 151155](https://github.com/user-attachments/assets/65a501b0-08e9-4983-9416-32b86f72918f)
