@@ -11,7 +11,6 @@ Demo Link: [![YouTube](https://youtu.be/mLgW7IoKXJM)](https://youtu.be/9zZoikUEy
 FinTaxPro and FintellectPro are powerful tools designed to transform the way individuals and businesses manage their tax obligations. Our mission is to make tax management straightforward and efficient, empowering users to make informed financial decisions.
 
 ---
-
 ## Problem Statement
 
 In today’s complex financial landscape, individuals and businesses face significant challenges in managing their tax obligations efficiently. The traditional tax-filing process is time-consuming, error-prone, and overwhelming due to the need for gathering vast amounts of financial data, identifying deductions, and keeping up with evolving tax laws. Our solution streamlines these tasks, reduces manual effort, and provides accurate, up-to-date tax insights.
